@@ -64,9 +64,7 @@ export default class GameView {
         for(let i = 0; i < game.board.length; i++){
             const tile = this.root.querySelector(`.board-tile[data-index="${i}"]`)
             tile.classList.remove("board-tile-winner");
-            if(game.board[i]){
-                tile.textContent =  game.board[i];
-            }
+            tile.textContent =  game.board[i];
             if(winningCombination && winningCombination.includes(i)){
                 tile.classList.add("board-tile-winner");
             }
