@@ -18,7 +18,7 @@ export default class Game {
         }
     }
 
-    makeMove(i) {
+    makeMove(i) {        
         if(!this.isInProgress()){
             return;
         }

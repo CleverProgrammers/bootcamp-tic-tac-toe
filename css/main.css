@@ -2,6 +2,14 @@
     box-sizing: border-box;
     margin: 0;
   }
+
+body {
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+.title {
+  max-width: 500px;
+}
   
   h1 {
     font-family: "Merriweather Sans", sans-serif;
@@ -26,12 +34,13 @@
   }
   
   .wrapper {
-    width: 1440px;
+    max-width: 1440px;
     height: 800px;
     padding: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0 auto;
   }
   
   .restart {
@@ -43,13 +52,22 @@
     border-radius: 50px;
     border: 2px solid #4c6986;
     margin-top: 30px;
+    transition: all 0.2s ease;
+    font-weight: bold;
+    color: #4c6986;
+    cursor: pointer;
+  }
+
+  .restart:hover {
+    background: #4c6986;
+    color: white;
   }
   
   .game {
     font-weight: bold;
     display: flex;
     flex-direction: column;
-    font-family: sans-serif;
+    font-family: "Merriweather Sans", sans-serif;
     width: 500px;
     height: 500px;
   }
@@ -57,17 +75,33 @@
   .header {
     display: flex;
     align-items: center;
-    background: #222;
+    font-size: 24px;
+    color: #9A9A9A;
   }
   
-  .header > * {
-    color: #eeeeee;
+  .player-x {
+    flex: 1;
+    border-bottom: 5px solid #eee;
+    padding-bottom: 8px;
+    
   }
-  
-  .header__turn {
-    padding: 12px;
+
+  .player-x.active {
+    color: #42BED7;
+    border-color: #42BED7;
   }
-  
+
+  .player-o.active {
+    color: #D7BAFB;
+    border-color: #D7BAFB;
+  }
+
+  .player-o {
+    flex: 1; 
+    border-bottom: 5px solid #eee;
+    padding-bottom: 8px;
+  }
+     
   .header__status {
     padding: 12px;
     flex-grow: 1;
@@ -97,12 +131,17 @@
     background: white;
     cursor: pointer;
     display: flex;
-  
     align-items: center;
     justify-content: center;
     font-size: 80px;
-    font-family: cursive;
-    color: plum;
+  }
+
+  .tile-x {
+    color: #42BED7;
+  }
+
+  .tile-o {
+    color: #D7BAFB
   }
   
   .board__tile:not(:nth-child(3n)) {
@@ -116,7 +155,16 @@
     background: #eeeeee;
   }
   
-  .board__tile--winner {
-    color: green;
+  .board__tile--winner span {
+    color: #23CE6B !important;
   }
   
+  @media only screen and (max-width: 1200px) {
+    .wrapper {
+      flex-direction: column;
+
+    }
+    .left {
+      margin-bottom: 50px;
+    }
+  }
