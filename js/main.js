@@ -2,15 +2,24 @@ import Game from "./Game.js";
 import GameView from "./GameView.js"
 
 let game = new Game();
-let gameView = new GameView(document.getElementById("app"));
+let gameView = new GameView();
 
+document.querySelector(".restart").addEventListener("click", () => {    
+      onRestartClick();
+});
 
-gameView.onTileClick = function (i){
+document.querySelectorAll(".board__tile").forEach((tile) => {
+    tile.addEventListener("click", () => {
+        onTileClick(tile.dataset.index);
+    });
+});
+
+function onTileClick(i) {
     game.makeMove(i)
     gameView.update(game);
 }
 
-gameView.onRestartClick = function(){
+function onRestartClick() {
     game = new Game();
     gameView.update(game)
 }

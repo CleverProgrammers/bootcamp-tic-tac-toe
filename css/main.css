@@ -1,72 +1,122 @@
 * {
     box-sizing: border-box;
-}
-
-#app {
-    border: 1px solid black;
-    width: 500px;
-    height: 500px;
+    margin: 0;
+  }
+  
+  h1 {
+    font-family: "Merriweather Sans", sans-serif;
+    font-weight: bold;
+    font-size: 70px;
+    color: #4c6986;
+  }
+  
+  p {
+    font-family: "Merriweather Sans", sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    color: #4c6986;
+  }
+  
+  #app {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .wrapper {
+    width: 1440px;
+    height: 800px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .restart {
+    width: 175px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    border: 2px solid #4c6986;
+    margin-top: 30px;
+  }
+  
+  .game {
     font-weight: bold;
     display: flex;
     flex-direction: column;
     font-family: sans-serif;
-}
-
-.header {
+    width: 500px;
+    height: 500px;
+  }
+  
+  .header {
     display: flex;
     align-items: center;
     background: #222;
-}
-
-.header > * {
-    color: #eee;
-}
-
-.header-turn {
+  }
+  
+  .header > * {
+    color: #eeeeee;
+  }
+  
+  .header__turn {
     padding: 12px;
-}
-
-.header-status {
+  }
+  
+  .header__status {
     padding: 12px;
     flex-grow: 1;
     text-align: center;
-}
-
-.header-restart {
+  }
+  
+  .header__restart {
     display: flex;
-    align-items: center;
     justify-content: center;
-    background: none;
+    align-items: center;
     border: none;
     outline: none;
+    background: none;
     cursor: pointer;
-}
-
-.board {
+  }
+  
+  .board {
     display: grid;
-    gap: 10px;
+    grid-gap: 0px;
     padding: 10px;
     flex-grow: 1;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    background: #eee;
-}
-
-.board-tile {
+  }
+  
+  .board__tile {
     background: white;
     cursor: pointer;
     display: flex;
+  
     align-items: center;
     justify-content: center;
     font-size: 80px;
     font-family: cursive;
-    color: #222;
-}
-
-.board-tile:hover {
-    background: #eee;
-}
-
-.board-tile-winner {
+    color: plum;
+  }
+  
+  .board__tile:not(:nth-child(3n)) {
+    border-right: 3px solid rgba(137, 163, 189, 0.58);
+  }
+  
+  .board__tile:not(:nth-last-child(-n + 3)) {
+    border-bottom: 3px solid rgba(137, 163, 189, 0.58);
+  }
+  .board__tile:hover {
+    background: #eeeeee;
+  }
+  
+  .board__tile--winner {
     color: green;
-}
+  }
+  
